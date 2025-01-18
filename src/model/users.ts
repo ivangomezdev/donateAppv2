@@ -12,6 +12,4 @@ export class Payment extends Model { }
     { sequelize },
   );
   
-  const user = new Payment({ id: 1 });
-  console.log(user);
   
