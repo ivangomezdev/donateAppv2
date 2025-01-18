@@ -12,6 +12,8 @@ export async function POST(request: Request, { params }) {
 
   if (body.type === "payment") {
     const mpPayment = await getPaymentById(body.data.id);
+    console.log(mpPayment.status,"status");
+    
     if (mpPayment.status === "approved") {
       console.log(`Payment ${mpPayment.id} approved`);
       console.log("PROCESADO?");
