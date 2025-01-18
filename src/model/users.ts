@@ -9,7 +9,7 @@ export class Payment extends Model { }
         type: DataTypes.STRING,
         primaryKey: true
       },
-      name: {
+      from: {
         type: DataTypes.STRING,
         primaryKey: true
       },
@@ -19,6 +19,14 @@ export class Payment extends Model { }
       }
       ,
       amount: {
+        type: DataTypes.STRING,
+        primaryKey: true
+      },
+      date: {
+        type: DataTypes.DATE,
+        primaryKey: true
+      },
+      status: {
         type: DataTypes.STRING,
         primaryKey: true
       }
