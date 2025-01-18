@@ -7,6 +7,7 @@ export class Payment extends Model { }
     {
       id: {
         type: DataTypes.STRING,
+        primaryKey: true
       },
     },
     { sequelize },
