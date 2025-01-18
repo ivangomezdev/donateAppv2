@@ -1,10 +1,9 @@
 import { getPaymentById, WebhokPayload } from "@/lib/mercadopago";
 import { confirmPurchase } from "@/lib/purchases";
-import { sequelize } from "../../../../lib/sequelize";
-import { Payment } from "../../../../model/users";
+
 
 export async function POST(request: Request, { params }) {
-  await sequelize.sync({ force: true });
+ 
   const body: WebhokPayload = await request.json();
   console.log("Webhook received", body);
   
@@ -12,7 +11,7 @@ export async function POST(request: Request, { params }) {
     const mpPayment = await getPaymentById(body.data.id);
     if (mpPayment.status === "approved") {
       console.log(`Payment ${mpPayment.id} approved`);
-      const jane = Payment.build({ id: mpPayment.id })
+      
       const purchaseId = mpPayment.external_reference;
       
       await confirmPurchase(purchaseId);
