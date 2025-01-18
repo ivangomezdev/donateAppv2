@@ -1,0 +1,152 @@
+$large-screens: 769px;
+
+body{
+  background-color: black;
+}
+
+
+.root {
+  
+  padding: 18px;
+  --progress-color: #36cd26;
+}
+
+.content {
+  max-width: 768px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.title {
+  color: white;
+  margin: 0;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.goal {
+  background-color: #212121;
+  border-radius: 12px;
+  // padding: 18px;
+  // text-align: center;
+  // font-weight: 600;
+  display: grid;
+  gap: 12px;
+
+  @media (min-width: $large-screens) {
+    position: sticky;
+    top: 12px;
+  }
+}
+
+.goalImg {
+  height: 300px;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+
+.goalTexts {
+  padding: 15px;
+  display: grid;
+  gap: 12px;
+}
+
+.goalTitle {
+  margin: 0;
+  font-size: 24px;
+  color:white
+
+}
+
+.goalDonations {
+  font-size: 15px;
+  color: #999;
+
+  .totalDonations {
+    color: var(--progress-color);
+
+  }
+}
+
+.goalProgressBar {
+  background-color: #333;
+  height: 12px;
+  border-radius: 3px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: var(--progress-color);
+    height: 12px;
+    width: calc(var(--progress) * 1%);
+  }
+}
+
+.goalDesc {
+  color: #AAA;
+  font-size: 15px;
+}
+
+.donations {
+  display: grid;
+  // overflow: auto;
+  gap: 6px;
+  padding-bottom: 120px;
+}
+
+.donation {
+  border-radius: 15px;
+  border: solid 1px #242424;
+  padding: 15px;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+
+.donationAmount {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+
+.donationText {
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.donateButton {
+  position: fixed;
+  bottom: 18px;
+  text-align: center;
+  right: 18px;
+  left: 18px;
+  background: #2243b0;
+  border: solid 1px #162a6e;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  font-size: 18px;
+  padding: 18px;
+  cursor: pointer;
+
+
+  &:hover {
+    background: #325adb;
+  }
+
+  @media (min-width: $large-screens) {
+    max-width: 420px;
+    width: 100%;
+    left: calc(50% - 210px);
+  }
+}
