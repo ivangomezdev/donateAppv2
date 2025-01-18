@@ -5,10 +5,6 @@ export class Payment extends Model { }
   
   Payment.init(
     {
-      id: {
-        type: DataTypes.STRING,
-        primaryKey: true
-      },
       from: {
         type: DataTypes.STRING,
         primaryKey: true
