@@ -1,3 +1,5 @@
+import { Payment } from "../model/users";
+
 type Purchase = {
   id: string;
   from: string;
@@ -6,6 +8,7 @@ type Purchase = {
   date: Date;
   status: string;
 };
+
 export async function getConfirmedPayments(): Promise<Purchase[]> {
   // Mock data
   return [
@@ -44,12 +47,14 @@ export async function createPurchase(
     date: new Date(),
     status: "pending",
   };
-  // guardamos esta nueva purchase en la db y devolvemos el id
+  const createDbPayment = await Payment.create({ purchase });
+  await createDbPayment.save();
   return "1234";
 }
 
 export function confirmPurchase(purchaseId: string) {
   // confirmamos la compra en la DB
   console.log(`Purchase ${purchaseId} confirmed`);
+  
   return true;
 }

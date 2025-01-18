@@ -5,6 +5,7 @@ import Link from "next/link";
 export default async function Home() {
   const campaign = await getCampaign();
 
+  
   return (
     <div className={styles.root}>
       <div className={styles.content}>

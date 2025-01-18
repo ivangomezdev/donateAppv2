@@ -9,6 +9,19 @@ export class Payment extends Model { }
         type: DataTypes.STRING,
         primaryKey: true
       },
+      name: {
+        type: DataTypes.STRING,
+        primaryKey: true
+      },
+      message: {
+        type: DataTypes.STRING,
+        primaryKey: true
+      }
+      ,
+      amount: {
+        type: DataTypes.STRING,
+        primaryKey: true
+      }
     },
     { sequelize },
   );

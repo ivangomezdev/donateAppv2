@@ -5,9 +5,7 @@ import { confirmPurchase } from "@/lib/purchases";
 export async function POST(request: Request, { params }) {
  
   const body: WebhokPayload = await request.json();
-  console.log("Webhook received", body);
-  console.log("Payment ID:", body.data.id);
-  console.log("tipo",body.type);
+
   const mpPayment = await getPaymentById(body.data.id);
   console.log(mpPayment.status,"status");
   
@@ -18,7 +16,7 @@ export async function POST(request: Request, { params }) {
     
     if (mpPayment.status === "approved") {
       console.log(`Payment ${mpPayment.id} approved`);
-      console.log("PROCESADO?");
+
       
       
       const purchaseId = mpPayment.external_reference;
