@@ -45,7 +45,7 @@ export async function createSingleProductPreference(
       ],
       // URL de redirección en los distintos casos
       back_urls: {
-        success: "http://10.147.19.93:4004/donate/success",
+        success: "https://donate-appv2.vercel.app/donate/success",
         failure: "https://" + BASE_URL + "/donate/failure",
         pending: "https://" + BASE_URL + "/donate/pending",
       },
