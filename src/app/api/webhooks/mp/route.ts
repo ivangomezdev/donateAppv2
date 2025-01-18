@@ -8,6 +8,8 @@ export async function POST(request: Request, { params }) {
   console.log("Webhook received", body);
   console.log("Payment ID:", body.data.id);
   console.log("tipo",body.type);
+  const mpPayment = await getPaymentById(body.data.id);
+  console.log(mpPayment.status,"status");
   
 
   if (body.type === "payment") {
