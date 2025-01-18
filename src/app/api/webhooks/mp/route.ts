@@ -1,7 +1,7 @@
 import { getPaymentById, WebhokPayload } from "@/lib/mercadopago";
 import { confirmPurchase } from "@/lib/purchases";
 import { sequelize } from "@/lib/sequelize";
-import { Payment } from "@/model/Users";
+import { Payment } from "../../../../model/users";
 
 export async function POST(request: Request, { params }) {
   await sequelize.sync({ force: true });
