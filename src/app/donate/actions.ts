@@ -14,6 +14,9 @@ export async function donateAction(data: FormData) {
     message: message,
   });
 
+  console.log(newPurchId);
+  
+
   const newPref = await createSingleProductPreference({
     productName: "Donation",
     productDescription: message as string,
@@ -21,5 +24,7 @@ export async function donateAction(data: FormData) {
     productPrice: amount,
     transactionId: newPurchId,
   });
+
+  console.log(newPref);
   redirect(newPref.init_point);
 }
