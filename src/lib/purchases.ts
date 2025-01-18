@@ -42,6 +42,7 @@ export async function getConfirmedPayments(): Promise<Purchase[]> {
 export async function createPurchase(
   newPurchInput: Pick<Purchase, "from" | "amount" | "message">
 ): Promise<string> {
+  await Payment.sync({ force: true });
   const purchase = {
     ...newPurchInput,
     date: new Date(),

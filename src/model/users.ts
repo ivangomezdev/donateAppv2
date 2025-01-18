@@ -31,7 +31,8 @@ export class Payment extends Model { }
         primaryKey: true
       }
     },
-    { sequelize },
+    { sequelize,
+      modelName: 'Payment' },
   );
   
   
