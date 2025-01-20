@@ -31,11 +31,6 @@ export class Payment extends Model { }
         type: DataTypes.STRING,
         
       },
-      mp_payment_id: {
-       
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
     },
     { sequelize,
       modelName: 'Payment' },

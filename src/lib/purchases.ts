@@ -42,12 +42,11 @@ export async function getConfirmedPayments(): Promise<Purchase[]> {
 export async function createPurchase(
   newPurchInput: Pick<Purchase, "from" | "amount" | "message">
 ): Promise<string> {
-  await Payment.sync({ alter: true });
+  await Payment.sync({ force: true });
   const purchase = {
     ...newPurchInput,
     date: new Date(),
-    status: "pending",
-    mp_payment_id: null,
+    status: "pending"
   };
 
   const createDbPayment = await Payment.create(purchase);
