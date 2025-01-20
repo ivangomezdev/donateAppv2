@@ -23,11 +23,11 @@ export default async function Home() {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Vaquitapp</h1>
+        <h1 className={styles.title}>ChangeDonateApp</h1>
         <div className={styles.goal}>
           <img
             className={styles.goalImg}
-            src="https://www.shutterstock.com/image-photo/new-playstation-5-slim-model-260nw-2377124501.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvfkAPPRs9Xo1SQ-EoiztC5Oz1yzoyF7_TjA&s"
           />
           <div className={styles.goalTexts}>
             <h2 className={styles.goalTitle}>{campaign.title}</h2>

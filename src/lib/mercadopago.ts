@@ -23,6 +23,7 @@ type CreatePrefOptions = {
 export async function createSingleProductPreference(
   options: CreatePrefOptions
 ) {
+
   return pref.create({
     body: {
       items: [
@@ -33,13 +34,14 @@ export async function createSingleProductPreference(
           quantity: 1,
           currency_id: "ARS",
           unit_price: options.productPrice,
+          
         },
       ],
 
       back_urls: {
-        success: "https://" + BASE_URL + "donate/success",
-        failure: "https://" + BASE_URL + "/donate/failure",
-        pending: "https://" + BASE_URL + "/donate/pending",
+        success: "https://donate-appv2.vercel.app/donate/success",
+        failure: "https://donate-appv2.vercel.app/donate/failure",
+        pending: "https://donate-appv2.vercel.app/donate/pending",
       },
 
       external_reference: options.transactionId,
