@@ -50,12 +50,12 @@ export async function createPurchase(
   };
 
   const createDbPayment = await Payment.create(purchase);
-  const idPayment = createDbPayment.id;
+
   
   await createDbPayment.save();
 
   
-  return idPayment;
+  return "111111";
 }
 
 export function confirmPurchase(purchaseId: string) {
