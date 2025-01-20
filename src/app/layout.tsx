@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vaquitapp",
+  title: "ChangeDonateApp",
   description: "Juntá dinero para cosas grandes",
 };
 
