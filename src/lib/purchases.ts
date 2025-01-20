@@ -47,15 +47,16 @@ export async function createPurchase(
     ...newPurchInput,
     date: new Date(),
     status: "pending"
+  
   };
 
   const createDbPayment = await Payment.create(purchase);
 
-  
+  const idPay = createDbPayment.id
   await createDbPayment.save();
 
   
-  return "111111";
+  return idPay;
 }
 
 export function confirmPurchase(purchaseId: string) {
