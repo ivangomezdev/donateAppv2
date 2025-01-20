@@ -52,9 +52,11 @@ export async function createPurchase(
 
   const createDbPayment = await Payment.create(purchase);
 
-  const idPay = createDbPayment.id
+ 
   await createDbPayment.save();
-
+  
+  const idPay = createDbPayment.getDataValue("id")
+  console.log("ID DE PAGO Y DE USUARIO", idPay);
   
   return idPay;
 }
