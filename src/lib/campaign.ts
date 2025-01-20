@@ -3,7 +3,7 @@ export async function getCampaign() {
   return {
     title: "Pavimento en Nuñez",
     description:
-      " Hola soy Matias! estamos juntando dinero para pavimentar la calle ituzaingo al 232, Nuñez. ",
+      " Hola soy Iván! estamos juntando dinero para pavimentar la calle ituzaingo al 232, Nuñez. ",
     amount: 600000,
   };
 }
