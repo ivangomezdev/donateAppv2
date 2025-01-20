@@ -20,7 +20,7 @@ export class Payment extends Model { }
       }
       ,
       amount: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         
       },
       date: {

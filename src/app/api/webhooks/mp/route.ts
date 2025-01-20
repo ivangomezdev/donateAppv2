@@ -11,8 +11,7 @@ export async function POST(request: Request, { params }) {
     console.log("TP PAYMENT");
     
     if (mpPayment.status === "approved") {
-      console.log(`Payment ${mpPayment.id} approved`);
-      console.log("APROBADO?");
+
       
       const purchaseId = mpPayment.external_reference;
       console.log(purchaseId,"REF EXTERNA PARA VNCULAR CON EL USERID");

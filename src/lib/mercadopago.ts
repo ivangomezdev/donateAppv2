@@ -7,7 +7,7 @@ const client = new MercadoPagoConfig({
   options: { timeout: 5000, idempotencyKey: "abc" },
 });
 
-const BASE_URL = process.env.VERCEL_URL || "apx.school";
+const BASE_URL = process.env.VERCEL_URL || "donate-appv2.vercel.app";
 
 // Step 3: Initialize the API object
 const pref = new Preference(client);
@@ -20,18 +20,9 @@ type CreatePrefOptions = {
   transactionId: string;
 };
 
-// recibimos data más generica en esta función
-// para abstraer al resto del sistema
-// de los detalles de mercado pago
-// esto nos permitirá hacer cambios dentro de esta librería
-// sin tener que modificar el resto del sistema
 export async function createSingleProductPreference(
   options: CreatePrefOptions
 ) {
-  // Todas las opciones en
-  // https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post
-
-  
   return pref.create({
     body: {
       items: [
@@ -42,17 +33,15 @@ export async function createSingleProductPreference(
           quantity: 1,
           currency_id: "ARS",
           unit_price: options.productPrice,
-          
         },
       ],
-      // URL de redirección en los distintos casos
+
       back_urls: {
-        success: "https://donate-appv2.vercel.app/donate/success",
+        success: "https://" + BASE_URL + "donate/success",
         failure: "https://" + BASE_URL + "/donate/failure",
         pending: "https://" + BASE_URL + "/donate/pending",
       },
-      // Esto puede ser el id o algún otro identificador
-      // que te ayude a vincular este pago con el producto más adelante
+
       external_reference: options.transactionId,
     },
   });

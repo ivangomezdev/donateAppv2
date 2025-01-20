@@ -46,35 +46,31 @@ export async function createPurchase(
   const purchase = {
     ...newPurchInput,
     date: new Date(),
-    status: "pending"
-  
+    status: "pending",
   };
 
   const createDbPayment = await Payment.create(purchase);
 
- 
   await createDbPayment.save();
-  
-  const idPay = createDbPayment.getDataValue("id")
-  console.log("ID DE PAGO Y DE USUARIO", idPay);
-  
+
+  const idPay = createDbPayment.getDataValue("id");
+
   return idPay;
 }
 
 export async function confirmPurchase(purchaseId: string) {
   // confirmamos la compra en la DB
 
-    await Payment.update(
-      { status: 'confirmed' },
-      {
-        where: {
-          id: purchaseId,
-        },
+  await Payment.update(
+    { status: "confirmed" },
+    {
+      where: {
+        id: purchaseId,
       },
-    );
-    
-  console.log(`Purchase ${purchaseId} confirmed`);
+    }
+  );
 
+  console.log(`Purchase ${purchaseId} confirmed`);
 
   return true;
 }

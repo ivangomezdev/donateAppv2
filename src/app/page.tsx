@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import styles from "./page.module.scss";
 import { getConfirmedPayments } from "@/lib/purchases";
 import { getCampaign } from "@/lib/campaign";
