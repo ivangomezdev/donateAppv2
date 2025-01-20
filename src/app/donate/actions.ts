@@ -8,14 +8,12 @@ export async function donateAction(data: FormData) {
   const name = data.get("name") as string;
   const message = data.get("message") as string;
   const amount = Number(data.get("amount"));
+
   const newPurchId = await createPurchase({
     from: name,
     amount,
     message: message,
   });
-
-  console.log(newPurchId);
-  
 
   const newPref = await createSingleProductPreference({
     productName: "Donation",
@@ -23,8 +21,10 @@ export async function donateAction(data: FormData) {
     productId: newPurchId,
     productPrice: amount,
     transactionId: newPurchId,
-  });
+  })
+  
+  
 
-  console.log(newPref);
-  redirect(newPref.init_point);
+  console.log("NEW REF", newPref.init_point);
+  //redirect(newPref.init_point);
 }

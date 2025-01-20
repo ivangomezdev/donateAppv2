@@ -31,6 +31,7 @@ export async function createSingleProductPreference(
   // Todas las opciones en
   // https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post
 
+  
   return pref.create({
     body: {
       items: [
@@ -41,6 +42,7 @@ export async function createSingleProductPreference(
           quantity: 1,
           currency_id: "ARS",
           unit_price: options.productPrice,
+          
         },
       ],
       // URL de redirección en los distintos casos

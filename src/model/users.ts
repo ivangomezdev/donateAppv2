@@ -5,27 +5,37 @@ export class Payment extends Model { }
   
   Payment.init(
     {
+      id: {
+        type: DataTypes.INTEGER, // Tipo de dato para el ID
+        autoIncrement: true, // Incremento automático
+        primaryKey: true, // Clave primaria
+      },  
       from: {
         type: DataTypes.STRING,
-        primaryKey: true
+
       },
       message: {
         type: DataTypes.STRING,
-        primaryKey: true
+        
       }
       ,
       amount: {
         type: DataTypes.STRING,
-        primaryKey: true
+        
       },
       date: {
         type: DataTypes.DATE,
-        primaryKey: true
+        
       },
       status: {
         type: DataTypes.STRING,
-        primaryKey: true
-      }
+        
+      },
+      mp_payment_id: {
+       
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     { sequelize,
       modelName: 'Payment' },

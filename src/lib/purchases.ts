@@ -42,20 +42,26 @@ export async function getConfirmedPayments(): Promise<Purchase[]> {
 export async function createPurchase(
   newPurchInput: Pick<Purchase, "from" | "amount" | "message">
 ): Promise<string> {
-  await Payment.sync({ force: true });
+  await Payment.sync({ alter: true });
   const purchase = {
     ...newPurchInput,
     date: new Date(),
     status: "pending",
+    mp_payment_id: null,
   };
-  const createDbPayment = await Payment.create({ purchase });
+
+  const createDbPayment = await Payment.create(purchase);
+  const idPayment = createDbPayment.id;
+  
   await createDbPayment.save();
-  return "1234";
+
+  
+  return idPayment;
 }
 
 export function confirmPurchase(purchaseId: string) {
   // confirmamos la compra en la DB
   console.log(`Purchase ${purchaseId} confirmed`);
-  
+
   return true;
 }
