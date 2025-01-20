@@ -23,8 +23,6 @@ export async function donateAction(data: FormData) {
     transactionId: newPurchId,
   })
   
-  
 
-  console.log("NEW REF", newPref.init_point);
-  //redirect(newPref.init_point);
+  redirect(newPref.init_point);
 }
