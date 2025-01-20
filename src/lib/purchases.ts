@@ -61,9 +61,20 @@ export async function createPurchase(
   return idPay;
 }
 
-export function confirmPurchase(purchaseId: string) {
+export async function confirmPurchase(purchaseId: string) {
   // confirmamos la compra en la DB
+
+    await Payment.update(
+      { status: 'confirmed' },
+      {
+        where: {
+          id: purchaseId,
+        },
+      },
+    );
+    
   console.log(`Purchase ${purchaseId} confirmed`);
+
 
   return true;
 }
